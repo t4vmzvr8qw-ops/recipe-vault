@@ -7,7 +7,13 @@
 - Text-Export der Einkaufsliste, vollständiger JSON-Backup-Import/-Export
 
 ## Rezepte aus Websites
-Du kannst die URL als Quelle hinterlegen und Zutaten/Anleitung einfügen. Automatisches Auslesen beliebiger Websites ist in einer statischen GitHub-Pages-App ohne Backend nicht zuverlässig (CORS). Die enthaltenen Rezeptideen sind Beispiele und können verändert werden.
+Auf der Startseite und unter „Rezepte“ gibt es **Rezept importieren** mit drei Wegen:
+
+- **Website-Link:** Versucht zuerst strukturierte `Recipe`-Daten (schema.org/JSON-LD) über einen öffentlichen Abrufdienst auszulesen; alternativ wird eine Textansicht angefordert. Manche Websites blockieren diese Dienste oder liefern unbrauchbare Texte.
+- **Bild/Screenshot:** Texterkennung direkt im Browser mit Tesseract.js (Deutsch/Englisch), das bei der ersten Nutzung über ein CDN geladen wird. Bitte den erkannten Text kontrollieren; insbesondere Mengen und Einheiten können falsch erkannt werden.
+- **Text:** Kopierten Rezepttext mit Überschriften „Zutaten“ und „Zubereitung“ einfügen.
+
+Alle Wege öffnen danach den bestehenden Rezepteditor, in dem du vor dem Speichern kontrollieren und korrigieren kannst. **Es werden keine Rezeptdaten automatisch gespeichert.** Der Website-Link wird an externe Abrufdienste geschickt; bei Fotoimport wird das Bild lokal verarbeitet, allerdings werden Programmdateien und Sprachmodelle aus dem Internet geladen. Ohne Backend oder API-Schlüssel kann das automatische Einlesen nicht auf allen Websites garantiert werden.
 
 ## Installation über GitHub Pages
 
